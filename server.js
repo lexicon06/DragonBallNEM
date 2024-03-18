@@ -4,6 +4,7 @@ import expressEjsLayouts from "express-ejs-layouts";
 import path from 'path';
 import {fileURLToPath} from 'url';
 import index from "./routes/index.js";
+import authors from "./routes/author.js";
 
 import config from "./env.js";
 
@@ -24,6 +25,7 @@ app.use(express.static('public'))
 
 
 app.use('/v1/', index);
+app.use('/v1/authors', authors);
 
 mongoose.connect(config.MONGODB_URI);
 

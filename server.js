@@ -10,6 +10,8 @@ import config from "./env.js";
 
 import mongoose from "mongoose";
 
+import bodyParser from "body-parser";
+
 const __filename = fileURLToPath(import.meta.url);
 
 const __dirname = path.dirname(__filename);
@@ -22,6 +24,7 @@ app.set('views', __dirname + '/views')
 app.set('layout', 'layouts/layout')
 app.use(expressEjsLayouts)
 app.use(express.static('public'))
+app.use(bodyParser.urlencoded({limit: '10mb', extended: false}))
 
 
 app.use('/v1/', index);

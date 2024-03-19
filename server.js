@@ -27,8 +27,8 @@ app.use(express.static('public'))
 app.use(bodyParser.urlencoded({limit: '10mb', extended: false}))
 
 
-app.use('/v1/', index);
-app.use('/v1/authors', authors);
+app.use('/', index);
+app.use('/authors', authors);
 
 mongoose.connect(config.MONGODB_URI);
 
